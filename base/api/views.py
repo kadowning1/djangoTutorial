@@ -27,3 +27,9 @@ def getRoom(request, pk):
     room = Room.objects.get(id=pk)
     serializer = RoomSerializer(room, many=False)
     return Response(serializer.data)
+    
+@api_view(['GET'])
+def getAllRoom(request, pk):
+    room = Room.objects.get(id=pk)
+    serializer = RoomSerializer(room, many=True)
+    return Response(serializer.data)
